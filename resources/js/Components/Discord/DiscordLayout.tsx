@@ -1,31 +1,20 @@
-import React from 'react';
 import ServerSidebar from '@/Components/Discord/ServerSidebar';
-import ChannelSidebar from '@/Components/Discord/ChannelSidebar';
-import ChatArea from '@/Components/Discord/ChatArea';
-import MemberList from '@/Components/Discord/MemberList';
+import React from 'react';
+import MainContent from './MainContent';
 
 interface DiscordLayoutProps {
-  children?: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 const DiscordLayout: React.FC<DiscordLayoutProps> = ({ children }) => {
-  return (
-    <div className="flex h-screen w-full overflow-hidden bg-discord-dark text-white">
-      {/* Server sidebar - leftmost column */}
-      <ServerSidebar />
-      
-      {/* Channel sidebar - middle left column */}
-      <ChannelSidebar />
-      
-      {/* Main chat area - largest right section */}
-      <ChatArea>
-        {children}
-      </ChatArea>
+    return (
+        <div className="flex h-screen w-full overflow-hidden bg-discord-dark text-white">
+            {/* Server sidebar - leftmost column */}
+            <ServerSidebar />
 
-      {/* Member list - rightmost column */}
-      <MemberList />
-    </div>
-  );
+            <MainContent>{children}</MainContent>
+        </div>
+    );
 };
 
-export default DiscordLayout; 
+export default DiscordLayout;
